@@ -37,7 +37,7 @@ router.put("/:id", validateId, validateProject, (req,res,next)=>{
 router.delete("/:id", validateId, (req,res,next)=>{
     projects.remove(req.params.id)
     .then(removedProjectId=>{
-        res.status(200).json(removedProjectId);
+        res.status(200).json();
     })
     .catch(next);
 })
