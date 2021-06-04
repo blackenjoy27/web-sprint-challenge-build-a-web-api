@@ -16,7 +16,21 @@ const validateId = (req,res,next)=>{
     })
 }
 
+const validateProject = (req,res,next)=>{
+    const {name,description} = req.body;
+    if(!name||!name.trim()||!description||!description.trim()){
+        next({
+            status:400,
+            message:"name and description is require"
+        })
+    }
+    else{
+        next();
+    }
+}
+
 
 module.exports = {
     validateId,
+    validateProject,
 }
